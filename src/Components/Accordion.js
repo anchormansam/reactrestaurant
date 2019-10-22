@@ -5,43 +5,53 @@ function Accordion() {
     const FoodDescription = [<Carousel />]
     const FoodTitle = ['Lunch', 'Brunch', 'Dinner']
 
-    const mappedFoodTitle = FoodTitle.map((item, idx) => {
+//     const foodMenuGenerator = .map((item, idx) => {
+        
+        
+//         return (
+
+//         <div class="carousel-caption d-none d-md-block">
+//           <h2>Price</h2>
+//           <h5>Title</h5>
+//           <p>Description</p>
+//         </div>
+
+//     
+//         )
+//     })
+    const accordionCards = FoodTitle.map((item, idx) => {
+        var collapseID = `collapse${idx}`;
+        var collapseDivID = `#${collapseID}`;
         return (
-
-            <div key={idx} className="card-header" >
-                <h5 className="mb-0">
-                    <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        {item}
-                    </button>
-                </h5>
-            </div>
-        )
-
-    });
-        const mappedFoodDescription = FoodDescription.map((item, idx) => {
-            return (
-
-                <div id={idx} className="card-body">
-                    {item}
+            <div className="card">
+                <div className="card-header" id="=HeadingONE">
+                    <div key={idx} className="card-header" >
+                        <h5 className="mb-0">
+                            <button 
+                                className="btn btn-link" 
+                                data-toggle="collapse" 
+                                data-target={collapseDivID} 
+                                aria-expanded="true" 
+                                aria-controls={collapseID}>
+                                {item}
+                            </button>
+                        </h5>
+                    </div>
                 </div>
 
-            )
-        })
+                <div id={collapseID} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div className="card-body">
+                        <div>Here</div>
+                    </div>
+                </div>
+            </div>
+        )
+    });
 
 
     return (
         <div id="accordion">
-            <div className="card">
-                <div className="card-header" id="=HeadingONE">
-                {mappedFoodTitle}
-                </div>
-
-                <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div className="card-body">
-                        {mappedFoodDescription}
-                    </div>
-                </div>
-            </div>
+            {accordionCards}
         </div>
     )
 
