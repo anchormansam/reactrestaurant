@@ -1,23 +1,11 @@
 import React from 'react';
+import ApiCall from './ApiCall';
 
 
 
 const newImages = ['1.jpg', '2.jpg', '3.jpg',];
 
 function Carousel(props) {
-
-  const mappedImages = newImages.map((item, idx) => {
-    var path = `/images/${item}`;
-    return (
-
-      <div key={idx} className="carousel-item">
-        <img className="d-block w-100" src={path} alt="Food" />
-
-      </div>
-
-    )
-
-  });
 
   return (
     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
@@ -27,10 +15,11 @@ function Carousel(props) {
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
       </ol>
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img className="d-block w-100" src="/images/sam.jpg" alt="First slide" />
-        </div>
-        {mappedImages}
+        {/* <div className="carousel-item active">
+          <img className="d-block w-100" src="./images/Sam.jpg" alt="First slide" />
+        </div> */}
+        {/* {mappedImages} */}
+        <ApiCall />
       </div>
       <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -5,20 +5,6 @@ function Accordion() {
     const FoodDescription = [<Carousel />]
     const FoodTitle = ['Lunch', 'Brunch', 'Dinner']
 
-//     const foodMenuGenerator = .map((item, idx) => {
-        
-        
-//         return (
-
-//         <div class="carousel-caption d-none d-md-block">
-//           <h2>Price</h2>
-//           <h5>Title</h5>
-//           <p>Description</p>
-//         </div>
-
-//     
-//         )
-//     })
     const accordionCards = FoodTitle.map((item, idx) => {
         var collapseID = `collapse${idx}`;
         var collapseDivID = `#${collapseID}`;
@@ -41,7 +27,7 @@ function Accordion() {
 
                 <div id={collapseID} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div className="card-body">
-                        <div>Here</div>
+                        <div><Carousel /></div>
                     </div>
                 </div>
             </div>
