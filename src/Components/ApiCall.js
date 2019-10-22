@@ -10,21 +10,17 @@ class ApiCall extends React.Component {
         };
     };
 
-    
-    componentDidMount() {
-        
-        Axios.get('https://entree-f18.herokuapp.com/v1/menu/12')
+    getMenuItems(course, itemNumber) {
+        Axios.get(`https://entree-f18.herokuapp.com/v1/menu/12`)
         .then((Response) => {
             let menu_items = Response.data.menu_items;
             
             console.log(Response.data.menu_items);
             
             menu_items.map((item, idx) => {
-                
                 item.image = "1.jpg";
                 item.price = `$` + item.description.length;
-                item.title = item.description.split(' ')[1];
-                
+                item.title = item.description.split(' ')[1].toUpperCase();                
             });
             
             this.setState({
@@ -32,6 +28,13 @@ class ApiCall extends React.Component {
             });
             
         });
+    }
+
+    
+    componentDidMount() {
+        this.getMenuItems('Lunch', 4);
+        this.getMenuItems('Brunch', 8);
+        this.getMenuItems('Dinner', 12)
     }
     
     render() {
