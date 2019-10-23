@@ -1,51 +1,56 @@
 import React from 'react';
 import Axios from 'axios';
-import { privateEncrypt } from 'crypto';
 
 class ApiCall extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             menu_items: [],
         };
     };
 
-    getMenuItems(course, itemNumber) {
-        Axios.get(`https://entree-f18.herokuapp.com/v1/menu/12`)
-        .then((Response) => {
-            let menu_items = Response.data.menu_items;
-            
-            console.log(Response.data.menu_items);
-            
-            menu_items.map((item, idx) => {
-                item.image = "1.jpg";
-                item.price = `$` + item.description.length;
-                item.title = item.description.split(' ')[1].toUpperCase();                
-            });
-            
-            this.setState({
-                menu_items: menu_items
-            });
-            
-        });
+    random_item(items) {
+        return items[Math.floor(Math.random() * items.length)];
     }
 
-    
-    componentDidMount() {
-        this.getMenuItems('Lunch', 4);
-        this.getMenuItems('Brunch', 8);
-        this.getMenuItems('Dinner', 12)
+    getMenuItems(course, itemNumber) {
+        var newImages = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8updated.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg'];
+        var tempMenuImage = newImages;
+        
+        Axios.get(`https://entree-f18.herokuapp.com/v1/menu/${itemNumber}`)
+            .then((Response) => {
+                let menu_items = Response.data.menu_items;
+
+                menu_items.map((item, idx) => {
+
+                    item.image = this.random_item(tempMenuImage);
+                    tempMenuImage.splice(tempMenuImage.indexOf(item.image), 1);
+                    console.log(tempMenuImage)
+
+                    item.price = `$` + item.description.length;
+                    item.title = item.description.split(' ')[1].toUpperCase();
+                });
+
+                this.setState({
+                    menu_items: menu_items
+                });
+
+            });
     }
-    
+
+    componentDidMount() {
+        this.getMenuItems(this.props.menuType, this.props.numberOfItems);
+    }
+
     render() {
         return (
-            this.state.menu_items.map((item,idx) => {
+            this.state.menu_items.map((item, idx) => {
                 var path = `/images/${item.image}`;
                 return (
                     <React.Fragment>
                         <div key={idx} className={`carousel-item ${idx === 0 && 'active'}`}>
-                            <img className="d-block w-100" src={path} alt="Food" />
-                        
+                            <img className="d-block w-100" id="foodImage" src={path} alt="Food" />
+
                             <div className="carousel-caption d-md-block text-primary">
                                 <h2>{item.price}</h2>
                                 <h5>{item.title}</h5>
@@ -54,10 +59,9 @@ class ApiCall extends React.Component {
                         </div>
                     </React.Fragment>
                 )
-        })
+            })
         );
     }
 }
-    
-    
-    export default ApiCall;
+
+export default ApiCall;

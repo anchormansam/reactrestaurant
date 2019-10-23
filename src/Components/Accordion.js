@@ -2,10 +2,14 @@ import React from 'react';
 import Carousel from './Carousel';
 
 function Accordion() {
-    const FoodDescription = [<Carousel />]
-    const FoodTitle = ['Lunch', 'Brunch', 'Dinner']
-
+ 
+    const FoodTitle = [
+        {menuType: 'Lunch', numberOfItems: 4},  
+        {menuType: 'Brunch', numberOfItems: 8},
+        {menuType: 'Dinner', numberOfItems: 12},
+        ]
     const accordionCards = FoodTitle.map((item, idx) => {
+        
         var collapseID = `collapse${idx}`;
         var collapseDivID = `#${collapseID}`;
         return (
@@ -19,7 +23,7 @@ function Accordion() {
                                 data-target={collapseDivID} 
                                 aria-expanded="true" 
                                 aria-controls={collapseID}>
-                                {item}
+                                {item.menuType}
                             </button>
                         </h5>
                     </div>
@@ -27,26 +31,27 @@ function Accordion() {
 
                 <div id={collapseID} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div className="card-body">
-                        <div><Carousel /></div>
+                        <div>
+                            <Carousel 
+                                menuType = {
+                                    item.menuType
+                                }
+                                numberOfItems={
+                                    item.numberOfItems
+                                }
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
         )
     });
-
-
+    
     return (
         <div id="accordion">
             {accordionCards}
         </div>
     )
-
-
-
-
-
 }
-
-
 
 export default Accordion; 
