@@ -28,8 +28,18 @@
   background-repeat: no-repeat;
   background-position: 0px -158px;
   color: #398551;
-  text-shadow: #396D85 0.3em 0.3em 0.3em;
+  /* text-shadow: #396D85 0.3em 0.3em 0.3em; */
   background-attachment: fixed;
-
 }
 
+.jumbotron::after {
+  content: "";
+  background-image: url(/background.jpg);
+  /* opacity: 0.5; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}

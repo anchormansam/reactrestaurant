@@ -4,10 +4,13 @@ import Carousel from './Carousel';
 function Accordion() {
  
     const FoodTitle = [
-        {menuType: 'Lunch', numberOfItems: 4},  
+        {menuType: 'Appetizers', numberOfItems: 8},
+        {menuType: 'Lunch', numberOfItems: 5},  
         {menuType: 'Brunch', numberOfItems: 8},
         {menuType: 'Dinner', numberOfItems: 12},
-        ]
+        {menuType: 'Late-Night', numberOfItems: 7},
+    
+    ]
     const accordionCards = FoodTitle.map((item, idx) => {
         
         var collapseID = `collapse${idx}`;
