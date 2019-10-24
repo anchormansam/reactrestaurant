@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Container from './Container'
 
 class ApiCall extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class ApiCall extends React.Component {
                 let menu_items = Response.data.menu_items;
 
                 menu_items.map((item, idx) => {
-
+                   
                     item.image = this.random_item(tempMenuImage);
                     tempMenuImage.splice(tempMenuImage.indexOf(item.image), 1);
                    
@@ -32,7 +33,7 @@ class ApiCall extends React.Component {
                     item.title = item.description.split(' ')[1].toUpperCase();
                 });
                
-                localStorage.setItem('menu_items', JSON.stringify(menu_items));
+                localStorage.setItem(this.props.menuType, JSON.stringify(menu_items));
 
                 this.setState({
                     menu_items: menu_items
@@ -40,18 +41,13 @@ class ApiCall extends React.Component {
 
             });
     }
-
-   
-
     
-
     componentDidMount() {
         if (!localStorage.getItem('menu_items')){
             
             this.getMenuItems(this.props.menuType, this.props.numberOfItems);
         }else {
             this.setState({
-                menu_items: JSON.parse(localStorage.getItem('menu_items'))
             });
             
         }
@@ -66,11 +62,13 @@ class ApiCall extends React.Component {
                         <div key={idx} className={`carousel-item ${idx === 0 && 'active'}`}>
                             <img className="d-block w-100" id="foodImage" src={path} alt="Food" />
 
-                            <div className="carousel-caption d-md-block text-primary">
-                                <h2>{item.price}</h2>
-                                <h5>{item.title}</h5>
-                                <p>{item.description}</p>
-                            </div>
+                            <div className="carousel-caption d-md-block" id="Priceview">
+                              <Container 
+                                    price={item.price}
+                                    title={item.title}
+                                    description={item.description}
+                                    />
+                                    </div>
                         </div>
                     </React.Fragment>
                 )
