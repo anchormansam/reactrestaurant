@@ -9,6 +9,7 @@ function Accordion() {
         {menuType: 'Brunch', numberOfItems: 8},
         {menuType: 'Dinner', numberOfItems: 12},
         {menuType: 'Late-Night', numberOfItems: 7},
+        // {menuType: 'Food-Images', numberOfItems: 12}
     
     ]
     const accordionCards = FoodTitle.map((item, idx) => {
