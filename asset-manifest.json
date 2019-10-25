@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/reactrestaurant/static/css/main.711bed4d.chunk.css",
+    "main.js": "/reactrestaurant/static/js/main.2c995f31.chunk.js",
+    "main.js.map": "/reactrestaurant/static/js/main.2c995f31.chunk.js.map",
+    "runtime-main.js": "/reactrestaurant/static/js/runtime-main.2815b5a5.js",
+    "runtime-main.js.map": "/reactrestaurant/static/js/runtime-main.2815b5a5.js.map",
+    "static/css/2.0624914a.chunk.css": "/reactrestaurant/static/css/2.0624914a.chunk.css",
+    "static/js/2.4ea9e624.chunk.js": "/reactrestaurant/static/js/2.4ea9e624.chunk.js",
+    "static/js/2.4ea9e624.chunk.js.map": "/reactrestaurant/static/js/2.4ea9e624.chunk.js.map",
+    "index.html": "/reactrestaurant/index.html",
+    "precache-manifest.72c333d9edb596d1b244889d6832438f.js": "/reactrestaurant/precache-manifest.72c333d9edb596d1b244889d6832438f.js",
+    "service-worker.js": "/reactrestaurant/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/reactrestaurant/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.711bed4d.chunk.css.map": "/reactrestaurant/static/css/main.711bed4d.chunk.css.map",
+    "static/media/App.css": "/reactrestaurant/static/media/chalkabout-webfont.e0117f9f.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2815b5a5.js",
+    "static/css/2.0624914a.chunk.css",
+    "static/js/2.4ea9e624.chunk.js",
+    "static/css/main.711bed4d.chunk.css",
+    "static/js/main.2c995f31.chunk.js"
+  ]
+}
