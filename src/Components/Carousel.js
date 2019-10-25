@@ -5,13 +5,13 @@ function Carousel(props) {
   let name = `carouselExampleIndicators${props.menuType}`;
   let id = `#${name}`;
   return (
-    <div id={ name } className="carousel slide" data-ride="carousel">
+    <div key={name} id={ name } className="carousel slide" data-ride="carousel">
       <ol className="carousel-indicators">
       </ol>
         <div className="carousel-inner">
           <ApiCall 
-          menuType={props.menuType}
-          numberOfItems={props.numberOfItems}
+            menuType={props.menuType}
+            numberOfItems={props.numberOfItems}
           />
         </div>
       <a className="carousel-control-prev" href={ id } role="button" data-slide="prev">

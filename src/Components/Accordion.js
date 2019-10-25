@@ -16,7 +16,7 @@ function Accordion() {
         var collapseID = `collapse${idx}`;
         var collapseDivID = `#${collapseID}`;
         return (
-            <div className="card">
+            <div key={idx} className="card">
                 <div className="card-header" id="=HeadingONE">
                     <div key={idx} className="card-header" >
                         <h5 className="mb-0">
