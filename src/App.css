@@ -21,15 +21,67 @@
   color: #09d3ac;
 }
 
+@font-face {
+  font-family: 'chalkaboutregular';
+  src: url('./webfontkit-20191023-214706/chalkabout-webfont.woff2') format('woff2'),
+       url('./webfontkit-20191023-214706/chalkabout-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.collapse5{
+  visibility: hidden;
+}
 .jumbotron {
-  background-image: url(/background.jpg);
-  margin-bottom: 0px;
+  background-image: url(/images/chalkboard.jpg);
+  margin-bottom: 0px !important;
   background-size: 100% 300%;
   background-repeat: no-repeat;
   background-position: 0px -158px;
-  color: ##398551;
-  text-shadow: #396D85 0.3em 0.3em 0.3em;
-  background-attachment: fixed;
+  color: white;
+  font-family: 'chalkaboutregular', serif;
+}
+ #Title {
+  font-size: 6.5rem;
+ }
 
+ #foodImage {
+  height:Auto; 
+  width: Auto;
+ }
+
+#Priceview {
+  color:black;
 }
 
+.menu-item-container-fluid {
+  background: white;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+
+@media only screen and (max-width: 720px) {
+
+  #Title{
+      font-size: 2.5rem;
+    }
+
+    #foodImage {
+      visibility: collapse;
+    }
+
+  .menu-item-container-fluid h2{
+    color:Black;
+    font-size:20px;
+  }
+  .menu-item-container-fluid h4{
+    color:black;
+    font-size:18px;
+  } 
+  .menu-item-container-fluid h5 {
+    color:black;
+    font-size:14px;
+  }
+
+
+}
